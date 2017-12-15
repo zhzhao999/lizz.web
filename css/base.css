@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/*公用声明*/
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form,input, select, button, textarea, iframe, table, th, td {margin: 0;padding: 0;}
+img {border: 0 none;vertical-align: top;}
+ul, li {list-style-type: none;}
+h1, h2, h3, h4, h5, h6, th, td {font-weight: normal;}
+body, input, select, button, textarea {font: 14px/1em "微软雅黑", Arial, "宋体";color: #3c3c3c;outline: none;} /*"Microsoft YaHei"*/
+body {position: relative;text-align: left;background: #fff;}
+a, a:link { /*color:#0085D0;*/text-decoration: none;}
+/*a:visited, a:active, a:hover { text-decoration:underline; }*/
+a:active {text-decoration: none;}
+a:focus {outline: none;}
+caption, cite, code, em, i, th {font-style: normal;font-weight: normal;}
+button, input {margin: 0;border: 0 none;vertical-align: middle;}
+button {border: 0 none;cursor: pointer;outline: none;}
+button:focus {outline: 0;}
+textarea {resize: none;}
+
+.clear {clear: both;font: 0;width: 0;height: 0;overflow: hidden;}
+.clearfix:after {font-size: 0;line-height: 0;content: "\020";display: block;height: 0;clear: both;}
+.clearfix {zoom: 1;overflow: hidden;}
+.fix {*zoom: 1;}
+.fix:after {display: table;content: '';clear: both;}
+
+.area{width: 1000px;margin: 0 auto;}
