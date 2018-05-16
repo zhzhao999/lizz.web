@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'STHupo';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STHupo.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STMeihei';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STMeihei.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STChangmou';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STChangmou.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STYaoti';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STYaoti.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STWeibei';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STWeibei.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STXinwei';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STXinwei.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STZongyi';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STZongyi.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STTehei';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STTehei.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STHei';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STHei.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STShusong';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STShusong.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STBiaosong';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STBiaosong.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STCaiyun';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STCaiyun.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STKaiti';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STKaiti.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STXianhei';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STXianhei.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STFangsong';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STFangsong.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'STSong';   /*字体名称*/
+  src: url('http://www.photostars.cn/huaWenFont/STSong.ttf');       /*字体源文件*/
+}

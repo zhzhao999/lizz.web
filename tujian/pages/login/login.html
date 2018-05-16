@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>图简</title>
+	<link rel="icon" type="image/x-icon" href="../../images/favorite.ico" />
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/login.css">
+	<script src="../../libs/dataAnalysis.js"></script>
+	<script src="../../libs/jquery-1.11.1.min.js"></script>
+	<script src="../../libs/jquery.cookie.js"></script>
+	<script src="../../libs/vue.js"></script>
+	<script src="../../libs/utli.js"></script>
+	<script src="../../libs/base64.js"></script>
+	<script src="./login.js"></script>
+</head>
+<body>
+	<div id="webPc">
+		<div class="login">
+			<img src="../../images/login-bg.png" alt="" class="login-bg">
+			<div class="login-main">
+				<div class="login-title"><img src="../../images/login-logo.png" alt=""></div>
+				<div class="login-input">
+					<div class="input-box fix u-username">
+						<!-- <img src="images/user-ico.png" alt="">  -->
+						<input type="text" placeholder="手机号/邮箱" id="username" v-model="accountName" @blur="checkAccount()">
+						<div class="tips">{{accountTip}}</div>
+					</div>
+					<div class="input-box fix u-userkey">
+						<!-- <img src="images/password-ico.png" alt="">  -->
+						<input type="password" placeholder="密码" id="password" v-model="password" @blur="checkPassword()">
+						<div class="tips">{{passwordTip}}</div>
+					</div>
+					<div class="oper-btn">
+        				<div class="checkbox" id="checkbox"><span class="on"></span>记住密码</div>
+        				<!-- <a href="#" class="forget">忘记密码?</a> -->
+					</div>
+				</div>
+				<div class="login-btn">
+					<div class="login-sub" @click.stop="submitLogin()">登 录</div>
+				</div>
+				<div class="to-register">
+					还没有账号，<a class="register" href="./register.html">马上去注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

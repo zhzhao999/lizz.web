@@ -1,0 +1,83 @@
+.publishContent{
+	display: none;
+}
+.publish{
+    display: inline-block;
+    padding: 20px 15px 0;
+    pointer-events: all;
+    background-color: #fff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: left;
+    animation: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    position: absolute;
+    right: 20px;
+    top: 65px;
+    width: 290px;
+}
+.inputbox{
+	position: relative;
+}
+.publish .pointer{
+    width: 14px;
+    height: 14px;
+	background: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transform: rotate(45deg);
+    left: calc((50% - 50px) + 0px);
+    top: -6px;
+}
+.inputbox label{
+	display: block;
+	font-weight: bold;
+    padding: 14px 0;
+}
+.inputbox input{
+	margin-bottom: 20px;
+	width: 100%;
+}
+.publishBtn {
+    width: 100%;
+    height: 50px;
+    background: rgba(153, 153, 153, 1);
+    border-radius: 4px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+.publishBtnOk{
+	background:#3d71f2 !important;
+}
+.closePublish{
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 33px;
+	text-align: center;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    transform: rotate(45deg);
+    color: #9b9ead !important;
+}
+.publishContent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+.info{
+	color: red;
+	font-size: 12px;
+	position: absolute;
+    top: 14px;
+    right: 93px;
+}
+.closePublish:hover{
+    cursor: pointer;
+}

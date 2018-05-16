@@ -1,0 +1,737 @@
+body{
+	min-width: 1300px;
+	font-family: "STXianhei";
+	overflow-x: hidden;
+}
+svg{
+	display: block;
+}
+/*html2canvas生成的多余div*/
+/*#SL_balloon_obj{
+	display: none;
+}*/
+#webPc{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+/*整个页面区域*/
+#content{
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    color: #222;
+    opacity: 1;
+    transition: all .3s linear;
+}
+/*左边列表部分*/
+#left{
+	top: 54px;
+	position: relative;
+    height: 100%;
+    z-index: 100;
+    width: 33.333%;
+    min-width: 300px;
+    max-width: 430px;
+    box-sizing: border-box;
+    padding: 19px 30px 15px 100px;
+    color: #fff;
+    background: linear-gradient(to right,#272c33 0,#272c33 72px,#ebeced 72px,#3f4652 100%);
+    -webkit-transform: translate3d(0,0,0);
+}
+#topbar{
+	cursor: default;
+    height: 54px;
+    z-index: 101;
+    transition: opacity .5s ease;
+	position: absolute;
+    height: 54px;
+    width: 100%;
+    background-color: #00c4cc;
+    color: #fff;
+}
+#canvaDocument{
+	overflow: /*scroll*/;
+	overflow: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    bottom: 0px;
+    left: 0;
+    padding: 0 0px 0px 0;
+	background: #EBECED;
+	z-index: 1;
+	min-width: 600px;
+}
+.page{
+	overflow: hidden;
+}
+.page_content{
+	position: absolute;
+	left: 50px;
+	background: #fff;
+	overflow: hidden;
+	/*top: 100px;*/
+}
+
+.templet{
+	width: 50px;
+	height: 50px;
+	margin-bottom: 20px;
+	line-height: 50px;
+	background: #000;
+}
+.btnBox{
+	position: absolute;
+	top: 10px;
+	z-index: 1;
+}
+/*遮罩*/
+.mask{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    z-index: 1000;
+    background-color: black;
+    opacity: 1;
+    pointer-events: none;
+    transition: background-color .3s linear,opacity .3s linear;
+}
+.mask.on{
+	width: 100%;
+    height: 100%;
+    opacity: .333;
+    pointer-events: none;
+    z-index: 2000;
+}
+/*end*/
+
+.btnBox>div{
+	font-size: 15px;
+	border: 1px solid black;
+	padding: 5px;
+	float: left;
+}
+.ImgBox{
+	width: 500px;
+	height: 500px;
+	/*background: red;*/
+	border: 1px solid black;
+	overflow: hidden;
+	position: relative;
+}
+.cutBox{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	cursor:move;
+	border: 1px solid red;
+	overflow: hidden;
+}
+/*外部裁剪框样式*/
+.outsideBox{
+	border: 1px solid red;
+	position: absolute;
+	overflow: hidden;
+	cursor:move;
+	z-index: 2001;
+}
+.templetImg{
+	position: absolute;
+}
+.img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: all .5s;
+}
+.element{
+	cursor: move;
+	overflow: hidden;
+	/*border: 1px solid transparent;*/
+	box-sizing: border-box;
+}
+/*END*/
+
+.imgBoxbtn>div{
+	float: left;
+}
+/*按钮样式表*/
+.btnBox>div{
+	display: none;
+}
+/*按钮样式表END*/
+
+/*选中的图片设置透明度*/
+.selectImg{
+	opacity: 0;
+	z-index: 1;
+}
+.scale{
+	width: 10px;
+	height: 10px;
+	background: red;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+}
+.zoomImgbox{
+	position: absolute;
+	display: none;
+	z-index:3000;
+	/*background: red;*/
+	/*border: 1px dashed rgba(0,0,0,.5);*/
+	border: 1px solid #000;
+	pointer-events:none;
+	box-sizing: border-box;
+}
+.zoomGroupbox{
+	position: absolute;
+	display: none;
+	z-index:3000;
+	border: 1px solid #000;
+	box-sizing: border-box;
+}
+#zoomRightBot{
+	pointer-events:auto;
+}
+.rotatebox,.rotate_groupbox{
+	position: absolute;
+	width: 39px;
+	height: 39px;
+	/*background: green;*/
+	left: 50%;
+	margin-left: -19.5px;
+	bottom: -50px;
+	pointer-events:auto;
+	background-image: url(../../images/rotate1.png);
+	background-repeat: no-repeat;
+    background-size: 17px 17px;
+    background-position: center;
+}
+.line{
+	height: 20px;
+	width: 0;
+	border: 1px dashed #3f4652;
+	position: absolute;
+	left: 18px;
+	top: -13px;
+}
+.rotatebox:hover{
+	background-image: url(../../images/rotate2.png);
+}
+.rotatebox img{
+	width: 100%;
+}
+#dragLeftTop{
+	cursor: nwse-resize;
+}
+#dragLeftBot{
+	cursor: nesw-resize;
+}
+#dragRightTop{
+	cursor: nesw-resize;
+}
+#dragRightBot{
+    cursor: nwse-resize;
+}
+/*文字部分     ↓*/
+.editTextBox{
+	min-height: 1.2em;
+	position: absolute;
+	z-index: 1001;
+	text-align: center;
+	display: none;
+	/*outline: 1px dashed transparent;*/
+	box-sizing: border-box;
+	/*border: 1px dashed #fff;*/
+}
+.editTextBox div,.editTextBox span,.editTextBox li{
+	font-size: inherit !important;
+}
+.element div,.element span,.element li{
+	font-size: inherit !important;
+}
+.TextInner{
+	/*line-height: 1.4;*/
+	text-decoration: none;
+	outline: none;
+}
+.playBorder{
+	position: absolute;
+	top: -1px;
+	bottom: -1px;
+	left: -1px;
+	right: -1px;
+	border: 1px dashed #fff;
+}
+.zoomBorder,.zoomGroupBorder{
+	position: absolute;
+	top: -1px;
+	bottom: -1px;
+	left: -1px;
+	right: -1px;
+	border: 1px dashed #fff;
+}
+.innerText{
+	text-decoration: none;
+	/*line-height: 1.4;*/
+}
+.textElement{
+	position: absolute;
+	text-align: center;
+	/*outline: 1px dashed transparent;*/
+	/*border: 1px solid transparent;*/
+}
+.playTextBox{
+	min-height: 1.2em;
+	box-sizing: border-box;
+	position: absolute;
+	border: 1px solid #000;
+	display: none;
+}
+.textBoxbtn{
+	width: 548px;
+	overflow: hidden;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.fontbar{
+	width: 140px;
+}
+.textBoxbtn>div{
+	float: left;
+	margin-left: 5px;
+}
+.fontSizeBox{
+	width: 40px;
+}
+.colorBox{
+	width: 40px;
+	height: 40px;
+}
+.colorbar{
+	height: 40px;
+}
+.fontList{
+	width: 200px;
+	position: absolute;
+    top: 60px;
+    display: none;
+    height: 400px;
+    /*overflow: auto;*/
+	background-color: #fff;
+	border-radius: 5px;
+	z-index: 2;
+	border: none;
+	box-shadow: 0 0 0 2px rgba(63,70,82,.15);
+}
+.fontList ul li:hover{
+
+}
+.fontList ul li img{
+	width: 163px;
+	margin-top: 5px;
+}
+.sizeList{
+	width: 100px;
+	position: absolute;
+    top: 60px;
+    display: none;
+    height: 400px;
+    /*overflow: auto;*/
+	background-color: #fff;
+	border-radius: 5px;
+	z-index: 2;
+	border: none;
+	box-shadow: 0 0 0 2px rgba(63,70,82,.15);
+}
+.alignList{
+	width: 40px;
+	position: absolute;
+    top: 60px;
+    display: none;
+	height: 40px;
+	background-color: #fff;
+	border-radius: 5px;
+	z-index: 2;
+	border: none;
+	box-shadow: 0 0 0 2px rgba(63,70,82,.15);
+}
+.spacingList{
+	width: 220px;
+	position: absolute;
+    top: 60px;
+	display: none;
+	height: 84px;
+	background-color: #fff;
+	border-radius: 5px;
+	z-index: 2;
+	border: none;
+	box-shadow: 0 0 0 2px rgba(63,70,82,.15);
+}
+.GridSpacing{
+	width: 220px;
+	position: absolute;
+    top: 60px;
+	display: none;
+	height: 35px;
+	background-color: #fff;
+	border-radius: 5px;
+	z-index: 2;
+	border: none;
+	box-shadow: 0 0 0 2px rgba(63,70,82,.15);
+}
+.GridSpacing::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: -9px;
+    left: 13px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 9px 9px;
+    border-color: transparent transparent white;
+    z-index: 2;
+}
+.GridSpacing::after {
+    z-index: 1;
+    top: -12px;
+    left: 12px;
+    border-style: solid;
+    content: ' ';
+    position: absolute;
+    border-color: transparent transparent rgba(63,70,82,.15);
+    border-width: 0 10px 10px;
+}
+.textAlign{
+	width: 40px;
+	height: 40px;
+}
+.colorList{
+	width: 60px;
+	position: absolute;
+    top: 60px;
+    display: none;
+    height: 240px;
+    overflow: auto;
+    border: 1px solid #000;
+	background-color: #fff;
+}
+.colorList__inner li{
+	width: 40px;
+	height: 40px;
+}
+
+.letterSpacing{
+	display: inline-block;
+}
+.letterSpacing{
+	width: 180px;
+}
+.showSpacing{
+	display: inline-block;
+	width: 30px;
+	height: 100%;
+}
+.LineSpacing{
+	display: inline-block;
+}
+.LineSpacing{
+	width: 180px;
+}
+.showLine{
+	display: inline-block;
+	width: 30px;
+	height: 100%;
+}
+#textRotatebox{
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: calc(50% - 12px);
+	/*margin-left: -5px;*/
+	bottom: -47px;
+	/* pointer-events: auto; */
+	z-index: 100;
+}
+#Textmove{
+    position: absolute;
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+	z-index: 1;
+    cursor: move;
+}
+/*何志强--进度条样式*/
+.wordSpacing{
+	background-color: #ddd;
+	border: none;
+	outline: none;
+	margin: 0;
+
+}
+/*文字部分     ↑*/
+
+.zoomimg{
+	position: absolute;
+}
+.masked{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.viewPort{
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+}
+.inner{
+	position: absolute;
+	overflow: hidden;
+}
+.cropControls{
+	position: absolute;
+	z-index: 2000;
+}
+.cropBox,.uncropped{
+	position: absolute;
+    cursor: move;
+}
+.uncropped{
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+}
+.uncropbox{
+	position: absolute;
+    cursor: move;
+}
+#dragLeftTop1{
+	pointer-events: all;
+}
+#dragLeftBot1{
+	pointer-events: all;
+}
+#dragRightTop1{
+	pointer-events: all;
+}
+#dragRightBot1{
+	pointer-events: all;
+}
+.cropping{
+	z-index: -10 !important;
+}
+#dragLeftTop1{
+	position:absolute; 
+	width:30px; 
+	height:30px; 
+	/*border:1px solid #000;*/ 
+	/*background:white;*/ 
+	overflow:hidden; 
+	left:-12px; 
+	top:-12px; 
+	cursor:nw-resize;
+	background-image: url(../../images/lt.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+#dragLeftBot1{
+	position:absolute; 
+	width:30px; 
+	height:30px; 
+	overflow:hidden; 
+	left:-12px; 
+	bottom:-12px; 
+	cursor:sw-resize;
+	background-image: url(../../images/lb.png);
+	background-size: 100%;
+}
+#dragRightTop1{
+	position:absolute; 
+	width:30px; 
+	height:30px; 
+	overflow:hidden; 
+	right:-12px; 
+	top:-12px; 
+	cursor:ne-resize;
+	background-image: url(../../images/rt.png);
+	background-size: 100%;
+}
+#dragRightBot1{
+	position:absolute; 
+	width:30px; 
+	height:30px; 
+	overflow:hidden; 
+	right:-12px; 
+	bottom:-12px; 
+	cursor:se-resize;
+	background-image: url(../../images/rb.png);
+	background-size: 100%;
+}
+.showZindex{
+	width: 10px;
+	position: absolute;
+	left: -70px;
+    top: 80px;
+}
+.z-index{
+	width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #000;
+    margin-bottom: 5px;
+}
+.classOn{
+	background: #38cedc !important;
+}
+.page_content .backgroundColor{
+	cursor: auto; 
+}
+
+/*网格*/
+.grid{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.gridinner{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.item{
+	position: absolute;
+}
+.item_content{
+	position: absolute;
+}
+.item_content img{
+	width: 100%;
+}
+.columns,.rows{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.columns .item{
+	width: 33.4%;
+	height: 100%;
+}
+.item:nth-child(1){
+	left: 0;
+}
+.item:nth-child(2){
+	left: 33.3%;
+}
+.item:nth-child(3){
+	left: 66.6%;
+}
+/*content来控制网格的spacing,同时也要更改gridinner的left,right,top,bottom值*/
+.item_content{
+	position: absolute;
+    left: 6px;
+    right: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    transition: top .2s ease-out,right .2s ease-out,bottom .2s ease-out,left .2s ease-out;
+}
+.vignette{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+.item_content .zoomimg{
+	width: 500px;
+	/*height: 600px;*/
+}
+
+.gridOn{
+	border: 1px dashed #000;
+}
+.grid{
+	transform: rotate(0);
+}
+
+.toolbarWrapper .toolbarGridSpacing{
+    width: auto;
+    height: 45px;
+    position: absolute;
+    left: 30px;
+    top: 0px;
+}
+.toolbarGridSpacing li{
+	height: 30px;
+	line-height: 30px;
+    text-align: center;
+    color: rgb(63, 70, 82);
+    background-color: transparent;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    margin: 8px 20px;
+    text-decoration: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 5px;
+    transition: background-color 0.1s ease, width 0.1s ease, opacity 0.1s ease;
+    outline: none;
+    border-left:1px solid rgba(63,70,82,.15) ;
+}
+.GridSpacingBox{
+	line-height: 35px;
+	display: inline-block;
+}
+.GSpacing{
+    display: inline-block;
+}
+.GridLabel{
+    text-align: right;
+    margin-right: 5px;
+    width: 40px;
+    display: inline-block;
+}
+.Gridinput{
+	margin: 0 !important;
+    background-color: #ddd;
+    border: none;
+    outline: none;
+    margin: 0;
+    line-height: 35px;
+}
+.showGridinput{
+    display: inline-block;
+    width: 30px;
+    height: 100%;
+    text-align: center;
+}

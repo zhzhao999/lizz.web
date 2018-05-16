@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>图简</title>
+	<link rel="icon" type="image/x-icon" href="../../images/favorite.ico" />
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/webStyle.css">
+	<script src="../../libs/dataAnalysis.js"></script>
+	<script src="../../libs/jquery-1.11.1.min.js"></script>
+	<script src="../../libs/waterfall/masonry.pkgd.min.js"></script>
+	<script src="../../libs/waterfall/imagesloaded.pkgd.min.js"></script>
+	<script src="../../libs/jquery.showLoading.min.js"></script>
+	<script src="../../libs/jquery.alert.js"></script>
+	<script src="../../libs/base64.js"></script>
+	<script src="../../libs/vue.js"></script>
+	<script src="../../libs/utli.js"></script>
+	<script src="../../libs/conmonjs/conmon.js"></script>
+	<script src="./opus.js"></script>
+</head>
+<body>
+	<div id="webPc">
+		<div class="content">
+			<div class="sidebar">
+				<span class="logo"><img src="../../images/logo.png" alt=""><!-- <h3>图简</h3> --></span>
+				<ul>
+					<li><a href="./createOpus.html">创建作品</a></li>
+					<li class="on"><a href="javascript:;">我的作品</a><!-- <img src="../../images/sidebar-right-ico.png" alt=""> --></li>
+				</ul>
+				<div class="master"  onclick="$.turnHref('../master/master.html')">
+					<a href="javascript:void(0)">我是大师</a>
+				</div>
+			</div>
+			<div class="layout myOpus">
+				<div class="homeDesigns">
+					<ul class="masonryLayout" id="grid">
+
+						<li class="masonryLayoutColumn" v-for="list in moduleLists">
+							<div class="designCardThumbnailContainer">
+								<div class="templateType" :title="list.typeName">{{list.typeName}}</div>
+								<a class="designCardThumbnail" href="javascript:;" @click="jumpPage(list.typeNumber, list.dataUrl,list.ownTemplateID,list.ownTemplateTitle,list.ownTimestamp_own)">
+									<div class="designCardThumbnailInside">
+										<div class="inside">
+											<img :src="list.showImageUrl" alt="">
+											<span class="designCardMenuOPop">
+												<button class="designCardMenuCopy" @click.stop="copyModule(list.ownTemplateID)"></button>
+												<button class="designCardMenuDel" @click.stop="deleteModule(list.ownTemplateID)"></button>
+												<span class="designCardMenuWrite"></span>
+											</span>
+										</div>
+									</div>
+								</a>
+								<div class="designCard__titleSection">
+									<span class="designCardTitle" :title="list.text" v-if="list.text">{{list.text}}</span>
+									<span class="designCardTitle" title="未命名设计" v-if="!list.text">未命名设计</span>
+									<span class="designCardTime" :title="list.ownTimestamp">{{list.ownTimestamp}}</span>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+					<div class="offsetLoading moduleTip"></div>
+				</div>
+				<div class="masonryLayoutNoneBox" v-if="moduleLists.length == 0 && flagNone">
+					<img class="my-opus-bg" src="../../images/opus-bg-login.png" alt="">
+					<div class="masonryLayoutNone">
+						<h2>你的首个设计作品一定会很精彩！</h2>
+						<p>此处会显示你设计的所有内容。</p>
+						<p>要开始设计， 不妨选择上面的“社交媒体”帖子。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -11,11 +11,7 @@
     //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
     _czc.push(["_setAccount", "1273692556"]);
 
-    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273692556'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273692556' type='text/javascript'%3E%3C/script%3E"));
-
-    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273692556'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273692556%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-
-    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273692556'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273692556%26online%3D1' type='text/javascript'%3E%3C/script%3E"));
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style='display:none;' id='cnzz_stat_icon_1273692556'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1273692556' type='text/javascript'%3E%3C/script%3E"));
   </script>
 </head>
 <body>
@@ -31,6 +27,7 @@
   </div>
   <div class="content">
     <div class="area">
+      <a href="./tujian/pages/login/login.html" style="width: 200px;height: 100px;background-color: #ccc;">跳转登录</a>
       <div class="abs"><a name="abs"></a>个人简介</div>
       <div class="art"><a name="art"></a>技能</div>
       <div class="exp"><a name="exp"></a>项目经验</div>
@@ -45,6 +42,19 @@
 <script type="text/javascript" src="libs/jquery-1.11.3.js"></script>
 <script type="text/javascript">
   $(function(){
-
+      $.ajax({
+          url: 'http://www.photostars.cn:8020/index.php/web1_0/homesys/getThemeList',
+          type: 'post',
+          dataType: 'json',
+          async: false,
+          data: {
+              authorityKey: '9670f10b8b17ea61010375bfbe08138d',
+              userID: 'MTAwMDE0Nw==',
+              token: '579c4c16d24ae7182885493ece0901ee',
+          },
+          success: function(data){
+              
+          }
+      })
   })
 </script>
